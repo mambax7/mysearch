@@ -65,7 +65,7 @@ switch ($op) {
         echo $indexAdmin->addNavigation('main.php?op=purge');
         //mysearch_adminmenu(1);
         echo '<br />';
-        $sform = new XoopsThemeForm(_AM_MYSEARCH_PRUNE, 'pruneform', XOOPS_URL.'/modules/mysearch/admin/index.php', 'post');
+        $sform = new XoopsThemeForm(_AM_MYSEARCH_PRUNE, 'pruneform', XOOPS_URL.'/modules/mysearch/admin/index.php', 'post', true);
         $sform->addElement(new XoopsFormTextDateSelect(_AM_MYSEARCH_PRUNE_DATE, 'prune_date',15,time()), false);
         $sform->addElement(new XoopsFormText(_AM_MYSEARCH_PRUNE_KEYONLY, 'keyword', 50, 255, ''), false);
         $sform->addElement(new XoopsFormText(_AM_MYSEARCH_IP, 'ip', 20, 255, ''), false);
@@ -176,7 +176,7 @@ switch ($op) {
         $mint=strtotime($min);
         $maxt=strtotime($max);
 
-        $sform = new XoopsThemeForm(_AM_MYSEARCH_EXPORT, 'exportform', XOOPS_URL.'/modules/mysearch/admin/index.php', 'post');
+        $sform = new XoopsThemeForm(_AM_MYSEARCH_EXPORT, 'exportform', XOOPS_URL.'/modules/mysearch/admin/index.php', 'post', true);
         $dates_tray = new XoopsFormElementTray(_AM_MYSEARCH_EXPORT_BETWEEN);
         $date1 = new XoopsFormTextDateSelect('', 'date1',15,$mint);
         $date2 = new XoopsFormTextDateSelect(_AM_MYSEARCH_EXPORT_AND, 'date2',15,$maxt);
@@ -269,7 +269,7 @@ switch ($op) {
         include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
         include_once XOOPS_ROOT_PATH.'/modules/mysearch/class/blacklist.php';
         echo '<h3>'._AM_MYSEARCH_BLACKLIST.'</h3>';
-        $sform = new XoopsThemeForm(_AM_MYSEARCH_BLACKLIST, 'MetagenBlackList', XOOPS_URL.'/modules/mysearch/admin/index.php', 'post');
+        $sform = new XoopsThemeForm(_AM_MYSEARCH_BLACKLIST, 'MetagenBlackList', XOOPS_URL.'/modules/mysearch/admin/index.php', 'post', true);
         $sform->addElement(new XoopsFormHidden('op', 'MetagenBlackList'), false);
 
         // Remove words
