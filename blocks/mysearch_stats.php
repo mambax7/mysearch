@@ -2,7 +2,7 @@
 //  ------------------------------------------------------------------------ //
 //                       mysearch - MODULE FOR XOOPS 2                        //
 //                  Copyright (c) 2005-2006 Instant Zero                     //
-//                     <http://xoops.instant-zero.com/>                      //
+//                     <http://xoops.instant-zero.com>                      //
 // ------------------------------------------------------------------------- //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -25,20 +25,20 @@
 //  ------------------------------------------------------------------------ //
 function b_mysearch_stats_show()
 {
-    include_once XOOPS_ROOT_PATH."/modules/mysearch/include/functions.php";
-    $mysearch_handler =& xoops_getmodulehandler('searches', 'mysearch');
-    $block = array();
+    require_once XOOPS_ROOT_PATH . '/modules/mysearch/include/functions.php';
+    $mysearchHandler = xoops_getModuleHandler('searches', 'mysearch');
+    $block           = array();
     $visiblekeywords = mysearch_getmoduleoption('showindex');
-    if($visiblekeywords > 0) {
+    if ($visiblekeywords > 0) {
         $keywords_count = mysearch_getmoduleoption('admincount');
 
         // Total keywords count
-        $block['total_keywords'] = $mysearch_handler->getCount();
+        $block['total_keywords'] = $mysearchHandler->getCount();
 
         // Most searched elements
-        $elements = $mysearch_handler->getMostSearched(0,$keywords_count);
-        foreach($elements as $keywordid => $datas) {
-            $block['mostsearched'][]=array('keyword'=>$datas['keyword'],'count'=>$datas['count']);
+        $elements = $mysearchHandler->getMostSearched(0, $keywords_count);
+        foreach ($elements as $keywordid => $datas) {
+            $block['mostsearched'][] = array('keyword' => $datas['keyword'], 'count' => $datas['count']);
         }
     }
 

@@ -1,13 +1,14 @@
 CREATE TABLE mysearch_searches (
-  mysearchid int(10) unsigned NOT NULL auto_increment,
-  keyword varchar(100) NOT NULL default '',
-  datesearch datetime NOT NULL default '0000-00-00 00:00:00',
-  uid mediumint(8) unsigned NOT NULL default '0',
-  ip varchar(32) NOT NULL default '',
-  PRIMARY KEY  (mysearchid),
-  KEY keyword (keyword,uid),
+  mysearchid INT(10) UNSIGNED      NOT NULL AUTO_INCREMENT,
+  keyword    VARCHAR(100)          NOT NULL DEFAULT '',
+  datesearch DATETIME              NOT NULL DEFAULT '0000-00-00 00:00:00',
+  uid        MEDIUMINT(8) UNSIGNED NOT NULL DEFAULT '0',
+  ip         VARCHAR(32)           NOT NULL DEFAULT '',
+  PRIMARY KEY (mysearchid),
+  KEY keyword (keyword, uid),
   KEY uid (uid),
   KEY datesearch (datesearch),
   FULLTEXT KEY keyword_2 (keyword)
-) ENGINE=MyISAM;
+)
+  ENGINE = MyISAM;
 

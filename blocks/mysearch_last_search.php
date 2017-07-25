@@ -2,7 +2,7 @@
 //  ------------------------------------------------------------------------ //
 //                       mysearch - MODULE FOR XOOPS 2                        //
 //                  Copyright (c) 2005-2006 Instant Zero                     //
-//                     <http://xoops.instant-zero.com/>                      //
+//                     <http://xoops.instant-zero.com>                      //
 // ------------------------------------------------------------------------- //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -25,30 +25,30 @@
 //  ------------------------------------------------------------------------ //
 function b_mysearch_last_search_show()
 {
-    include_once XOOPS_ROOT_PATH.'/modules/mysearch/include/functions.php';
-    $mysearch_handler =& xoops_getmodulehandler('searches', 'mysearch');
+    require_once XOOPS_ROOT_PATH . '/modules/mysearch/include/functions.php';
+    $mysearchHandler = xoops_getModuleHandler('searches', 'mysearch');
     $visiblekeywords = 0;
-    $block = array();
+    $block           = array();
     $visiblekeywords = mysearch_getmoduleoption('showindex');
-    if( $visiblekeywords > 0 ) {
+    if ($visiblekeywords > 0) {
         $block['visiblekeywords'] = $visiblekeywords;
-        $totalcount=$mysearch_handler->getCount();
-        $start = 0;
-        $critere =new Criteria('mysearchid', 0, '<>');
+        $totalcount               = $mysearchHandler->getCount();
+        $start                    = 0;
+        $critere                  = new Criteria('mysearchid', 0, '<>');
         $critere->setSort('datesearch');
         $critere->setLimit($visiblekeywords);
         $critere->setStart($start);
         $critere->setOrder('DESC');
         $tmpmysearch = new searches();
-        $elements = $mysearch_handler->getObjects($critere);
-        foreach($elements as $oneelement) {
-            $search = array();
-            $search['keyword'] = $oneelement->getVar('keyword');
-            $search['date'] = formatTimestamp(strtotime($oneelement->getVar('datesearch')));
-            $search['uid'] = $oneelement->getVar('keyword');
-            $search['uname'] = $tmpmysearch->uname($oneelement->getVar('uid'));
-            $search['link'] = "<a href='".XOOPS_URL.'/search.php?query='.$oneelement->getVar('keyword')."&action=results' target='_blank'>";
-            $block['searches'][]=$search;
+        $elements    = $mysearchHandler->getObjects($critere);
+        foreach ($elements as $oneelement) {
+            $search              = array();
+            $search['keyword']   = $oneelement->getVar('keyword');
+            $search['date']      = formatTimestamp(strtotime($oneelement->getVar('datesearch')));
+            $search['uid']       = $oneelement->getVar('keyword');
+            $search['uname']     = $tmpmysearch->uname($oneelement->getVar('uid'));
+            $search['link']      = "<a href='" . XOOPS_URL . '/search.php?query=' . $oneelement->getVar('keyword') . "&action=results' target='_blank'>";
+            $block['searches'][] = $search;
             unset($search);
         }
     }

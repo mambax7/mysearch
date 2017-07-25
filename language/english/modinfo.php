@@ -2,7 +2,7 @@
 //  ------------------------------------------------------------------------ //
 //                       mysearch - MODULE FOR XOOPS 2                        //
 //                  Copyright (c) 2005-2006 Instant Zero                     //
-//                     <http://xoops.instant-zero.com/>                      //
+//                     <http://xoops.instant-zero.com>                      //
 // ------------------------------------------------------------------------- //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -24,38 +24,51 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
 
-define('_MI_MYSEARCH_NAME',"My search");
-define('_MI_MYSEARCH_DESC',"With this module you can learn what people are searching for on your website.");
+define('_MI_MYSEARCH_NAME', 'My search');
+define('_MI_MYSEARCH_DESC', 'With this module you can learn what people are searching for on your website.');
 
-define('_MI_MYSEARCH_ADMMENU1',"Statistics");
-define('_MI_MYSEARCH_ADMMENU2',"Prune");
-define('_MI_MYSEARCH_ADMMENU3',"Export");
-define('_MI_MYSEARCH_ADMMENU4',"Blacklist");
-define('_MI_MYSEARCH_ADMMENU5',"About");
+define('_MI_MYSEARCH_ADMMENU1', 'Statistics');
+define('_MI_MYSEARCH_ADMMENU2', 'Prune');
+define('_MI_MYSEARCH_ADMMENU3', 'Export');
+define('_MI_MYSEARCH_ADMMENU4', 'Blacklist');
+define('_MI_MYSEARCH_ADMMENU5', 'About');
 
-define('_MI_MYSEARCH_OPT0',"Count of searches to show on the module's index page");
-define('_MI_MYSEARCH_OPT0_DSC',"Select the number of searches users can see on the module's index page (0=show nothing)");
+define('_MI_MYSEARCH_OPT0', "Count of searches to show on the module's index page");
+define('_MI_MYSEARCH_OPT0_DSC', "Select the number of searches users can see on the module's index page (0=show nothing)");
 
-define('_MI_MYSEARCH_OPT1',"Groups you don't want to record");
-define('_MI_MYSEARCH_OPT1_DSC',"All the searches made by people who are in those groups will not be recorded");
+define('_MI_MYSEARCH_OPT1', "Groups you don't want to record");
+define('_MI_MYSEARCH_OPT1_DSC', 'All the searches made by people who are in those groups will not be recorded');
 
-define('_MI_MYSEARCH_OPT2',"Count of keywords visible in the administration");
-define('_MI_MYSEARCH_OPT2_DSC',"");
+define('_MI_MYSEARCH_OPT2', 'Count of keywords visible in the administration');
+define('_MI_MYSEARCH_OPT2_DSC', '');
 
-define('_MI_MYSEARCH_BNAME1',"Last searches");
-define('_MI_MYSEARCH_BNAME2',"Top searchers");
-define('_MI_MYSEARCH_BNAME3',"Statistics");
-define('_MI_MYSEARCH_BNAME4',"Ajax Search");
+define('_MI_MYSEARCH_BNAME1', 'Last searches');
+define('_MI_MYSEARCH_BNAME2', 'Top searchers');
+define('_MI_MYSEARCH_BNAME3', 'Statistics');
+define('_MI_MYSEARCH_BNAME4', 'Ajax Search');
 
 // Added by Lankford on 2007/8/15
-define('_MI_MYSEARCH_DO_DEEP_SEARCH',"Enable 'deep' searching?");
-define('_MI_MYSEARCH_DO_DEEP_SEARCH_DSC',"Would you like your initial search results page to indicate how many hits were found in each module?  Note: turning this on can slow down the search process!");
-define('_MI_MYSEARCH_INIT_SRCH_RSLTS',"Number of initial search results: (for 'shallow' searching)");
-define('_MI_MYSEARCH_INIT_SRCH_RSLTS_DSC',"'Shallow' searches are made quicker by limiting the results that are returned for each module on the initial search page.");
-define('_MI_MYSEARCH_MDL_SRCH_RESULTS',"Number of search results per page:");
-define('_MI_MYSEARCH_MDL_SRCH_RESULTS_DSC',"This determines how many hits per page are shown after drilling down into a particular module's search results.");
+define('_MI_MYSEARCH_DO_DEEP_SEARCH', "Enable 'deep' searching?");
+define('_MI_MYSEARCH_DO_DEEP_SEARCH_DSC', 'Would you like your initial search results page to indicate how many hits were found in each module?  Note: turning this on can slow down the search process!');
+define('_MI_MYSEARCH_INIT_SRCH_RSLTS', "Number of initial search results: (for 'shallow' searching)");
+define('_MI_MYSEARCH_INIT_SRCH_RSLTS_DSC', "'Shallow' searches are made quicker by limiting the results that are returned for each module on the initial search page.");
+define('_MI_MYSEARCH_MDL_SRCH_RESULTS', 'Number of search results per page:');
+define('_MI_MYSEARCH_MDL_SRCH_RESULTS_DSC', "This determines how many hits per page are shown after drilling down into a particular module's search results.");
 
-define('_MI_MYSEARCH_MIN_SEARCH','Minimum keyword length');
-define('_MI_MYSEARCH_MIN_SEARCH_DSC','Enter the minimum keyword length that users are required to enter to perform search');
+define('_MI_MYSEARCH_MIN_SEARCH', 'Minimum keyword length');
+define('_MI_MYSEARCH_MIN_SEARCH_DSC', 'Enter the minimum keyword length that users are required to enter to perform search');
 
-define('_MI_MYSEARCH_ADMIN0',"Home");
+define('_MI_MYSEARCH_ADMIN0', 'Home');
+//1.22
+//Help
+define('_MI_MYSEARCH_DIRNAME', basename(dirname(dirname(__DIR__))));
+define('_MI_MYSEARCH_HELP_HEADER', __DIR__.'/help/helpheader.html');
+define('_MI_MYSEARCH_BACK_2_ADMIN', 'Back to Administration of ');
+define('_MI_MYSEARCH_OVERVIEW', 'Overview');
+
+//define('_MI_MYSEARCH_HELP_DIR', __DIR__);
+
+//help multi-page
+define('_MI_MYSEARCH_DISCLAIMER', 'Disclaimer');
+define('_MI_MYSEARCH_LICENSE', 'License');
+define('_MI_MYSEARCH_SUPPORT', 'Support');
