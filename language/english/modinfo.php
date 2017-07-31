@@ -62,7 +62,7 @@ define('_MI_MYSEARCH_ADMIN0', 'Home');
 //1.22
 //Help
 define('_MI_MYSEARCH_DIRNAME', basename(dirname(dirname(__DIR__))));
-define('_MI_MYSEARCH_HELP_HEADER', __DIR__.'/help/helpheader.html');
+define('_MI_MYSEARCH_HELP_HEADER', __DIR__.'/help/helpheader.tpl');
 define('_MI_MYSEARCH_BACK_2_ADMIN', 'Back to Administration of ');
 define('_MI_MYSEARCH_OVERVIEW', 'Overview');
 
