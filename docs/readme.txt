@@ -4,7 +4,7 @@ What is mysearch Module ?
 With this module you can learn what people are searching for on your website.
 
 The module can :
-. search logs 
+. search logs
 . search with ajax autocomplete feature
 
 Requirements
@@ -26,9 +26,9 @@ Tell me
 How to install mysearch
 ====================
 
-Copy mysearch folder into the /modules directory of your website. 
+Copy mysearch folder into the /modules directory of your website.
 Then log in to your site as administrator, go to System Admin > Modules, look for the mysearch
-icon in the list of uninstalled modules and click in the install icon. 
+icon in the list of uninstalled modules and click in the install icon.
 Follow the directions in the screen and you'll be ready to go.
 
 
