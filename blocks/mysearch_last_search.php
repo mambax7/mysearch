@@ -28,7 +28,7 @@ function b_mysearch_last_search_show()
     require_once XOOPS_ROOT_PATH . '/modules/mysearch/include/functions.php';
     $mysearchHandler = xoops_getModuleHandler('searches', 'mysearch');
     $visiblekeywords = 0;
-    $block           = array();
+    $block           = [];
     $visiblekeywords = mysearch_getmoduleoption('showindex');
     if ($visiblekeywords > 0) {
         $block['visiblekeywords'] = $visiblekeywords;
@@ -42,7 +42,7 @@ function b_mysearch_last_search_show()
         $tmpmysearch = new searches();
         $elements    = $mysearchHandler->getObjects($critere);
         foreach ($elements as $oneelement) {
-            $search              = array();
+            $search              = [];
             $search['keyword']   = $oneelement->getVar('keyword');
             $search['date']      = formatTimestamp(strtotime($oneelement->getVar('datesearch')));
             $search['uid']       = $oneelement->getVar('keyword');

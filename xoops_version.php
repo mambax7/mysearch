@@ -23,7 +23,7 @@
 //  along with this program; if not, write to the Free Software              //
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
-// defined('XOOPS_ROOT_PATH') || exit('XOOPS root path not defined');
+// defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
 $moduleDirName = basename(__DIR__);
 
 $modversion['version']             = 1.22;
@@ -48,7 +48,7 @@ $modversion['author_website_name'] = 'XOOPS';
 $modversion['min_php']             = '5.5';
 $modversion['min_xoops']           = '2.5.9';
 $modversion['min_admin']           = '1.2';
-$modversion['min_db']              = array('mysql' => '5.5');
+$modversion['min_db']              = ['mysql' => '5.5'];
 
 //About
 $modversion['developer_website_url']  = 'http://www.xuups.com';
@@ -59,12 +59,12 @@ $modversion['status']                 = 'Final';
 $modversion['date']                   = '2008-11-01';
 
 // ------------------- Help files ------------------- //
-$modversion['helpsection'] = array(
+$modversion['helpsection'] = [
     ['name' => _MI_MYSEARCH_OVERVIEW, 'link' => 'page=help'],
     ['name' => _MI_MYSEARCH_DISCLAIMER, 'link' => 'page=disclaimer'],
     ['name' => _MI_MYSEARCH_LICENSE, 'link' => 'page=license'],
     ['name' => _MI_MYSEARCH_SUPPORT, 'link' => 'page=support'],
-);
+];
 
 $modversion['people']['developers'][] = 'Hervet(herve-thouzard.com)';
 $modversion['people']['developers'][] = 'Marco(xoops.instant-zero.com)';
@@ -157,7 +157,7 @@ $modversion['config'][$i]['title']       = '_MI_MYSEARCH_OPT1';
 $modversion['config'][$i]['description'] = '_MI_MYSEARCH_OPT1_DSC';
 $modversion['config'][$i]['formtype']    = 'select_multi';
 $modversion['config'][$i]['valuetype']   = 'array';
-$modversion['config'][$i]['default']     = array();
+$modversion['config'][$i]['default']     = [];
 $modversion['config'][$i]['options']     = array_flip($memberHandler->getGroupList());
 
 /**

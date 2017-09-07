@@ -84,7 +84,7 @@ if (!empty($_GET['start'])) {
 
 $xoopsTpl->assign('start', $start + 1);
 
-$queries = array();
+$queries = [];
 
 if ($action == 'recoosults') {
     if ($query == '') {
@@ -123,7 +123,7 @@ $myts = MyTextSanitizer::getInstance();
 
 if ($action != 'showallbyuser') {
     if ($andor != 'exact') {
-        $ignored_queries = array(); // holds kewords that are shorter than allowed minmum length
+        $ignored_queries = []; // holds kewords that are shorter than allowed minmum length
         $temp_queries    = preg_split('/[\s,]+/', $query);
         foreach ($temp_queries as $q) {
             $q = trim($q);
@@ -141,15 +141,15 @@ if ($action != 'showallbyuser') {
         if (strlen($query) < $xoopsModuleConfig['keyword_min']) {
             redirect_header('search.php', 2, sprintf(_MA_MYSEARCH_KEYTOOSHORT, $xoopsModuleConfig['keyword_min']));
         }
-        $queries = array($myts->addSlashes($query));
+        $queries = [$myts->addSlashes($query)];
     }
 }
 $xoopsTpl->assign('label_search_results', _MA_MYSEARCH_SEARCHRESULTS);
 
 // Keywords section.
 $xoopsTpl->assign('label_keywords', _MA_MYSEARCH_KEYWORDS . ':');
-$keywords         = array();
-$ignored_keywords = array();
+$keywords         = [];
+$ignored_keywords = [];
 foreach ($queries as $q) {
     $keywords[] = htmlspecialchars(stripslashes($q));
 }
@@ -162,8 +162,8 @@ if (!empty($ignored_queries)) {
 }
 $xoopsTpl->assign('searched_keywords', $keywords);
 
-$all_results        = array();
-$all_results_counts = array();
+$all_results        = [];
+$all_results_counts = [];
 switch ($action) {
     case 'results':
         $max_results_per_page = $xoopsModuleConfig['num_shallow_search'];
@@ -173,7 +173,7 @@ switch ($action) {
         $criteria->add(new Criteria('isactive', 1));
         $criteria->add(new Criteria('mid', '(' . implode(',', $available_modules) . ')', 'IN'));
         $modules = $moduleHandler->getObjects($criteria, true);
-        $mids    = isset($_REQUEST['mids']) ? $_REQUEST['mids'] : array();
+        $mids    = isset($_REQUEST['mids']) ? $_REQUEST['mids'] : [];
         if (empty($mids) || !is_array($mids)) {
             unset($mids);
             $mids = array_keys($modules);
@@ -191,7 +191,7 @@ switch ($action) {
                 $all_results_counts[$module->getVar('name')] = $count;
 
                 if (!is_array($results) || $count == 0) {
-                    $all_results[$module->getVar('name')] = array();
+                    $all_results[$module->getVar('name')] = [];
                 } else {
                     $num_show_this_page = (($count - $start) > $max_results_per_page) ? $max_results_per_page : $count - $start;
                     for ($i = 0; $i < $num_show_this_page; ++$i) {
@@ -230,11 +230,11 @@ switch ($action) {
                         }
                     }
 
-                    $all_results[$module->getVar('name')] = array(
+                    $all_results[$module->getVar('name')] = [
                         'search_more_title' => _MA_MYSEARCH_SHOWALLR,
                         'search_more_url'   => $myts->htmlspecialchars($search_url),
                         'results'           => array_slice($results, 0, $num_show_this_page)
-                    );
+                    ];
                 }
             }
             unset($results);
@@ -288,10 +288,10 @@ switch ($action) {
 
             require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
             $pagenav                              = new XoopsPageNav($count, $max_results_per_page, $start, 'start', $search_url_get_params);
-            $all_results[$module->getVar('name')] = array(
+            $all_results[$module->getVar('name')] = [
                 'results'  => array_slice($results, 0, $num_show_this_page),
                 'page_nav' => $pagenav->renderNav()
-            );
+            ];
         } else {
             echo '<p>' . _MA_MYSEARCH_NOMATCH . '</p>';
         }

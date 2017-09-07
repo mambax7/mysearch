@@ -28,7 +28,7 @@ function b_mysearch_big_user_show()
 {
     require_once XOOPS_ROOT_PATH . '/modules/mysearch/include/functions.php';
     $mysearchHandler = xoops_getModuleHandler('searches', 'mysearch');
-    $block           = array();
+    $block           = [];
     $visiblekeywords = mysearch_getmoduleoption('showindex');
     if ($visiblekeywords > 0) {
         $tmpmysearch    = new searches();
@@ -40,11 +40,11 @@ function b_mysearch_big_user_show()
         // Biggest users
         $elements = $mysearchHandler->getBiggestContributors(0, $keywords_count);
         foreach ($elements as $oneuser => $onecount) {
-            $block['biggesusers'][] = array(
+            $block['biggesusers'][] = [
                 'uid'   => $oneuser,
                 'uname' => $tmpmysearch->uname($oneuser),
                 'count' => $onecount
-            );
+            ];
         }
     }
 

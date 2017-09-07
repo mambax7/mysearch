@@ -27,7 +27,7 @@ function b_mysearch_stats_show()
 {
     require_once XOOPS_ROOT_PATH . '/modules/mysearch/include/functions.php';
     $mysearchHandler = xoops_getModuleHandler('searches', 'mysearch');
-    $block           = array();
+    $block           = [];
     $visiblekeywords = mysearch_getmoduleoption('showindex');
     if ($visiblekeywords > 0) {
         $keywords_count = mysearch_getmoduleoption('admincount');
@@ -38,7 +38,7 @@ function b_mysearch_stats_show()
         // Most searched elements
         $elements = $mysearchHandler->getMostSearched(0, $keywords_count);
         foreach ($elements as $keywordid => $datas) {
-            $block['mostsearched'][] = array('keyword' => $datas['keyword'], 'count' => $datas['count']);
+            $block['mostsearched'][] = ['keyword' => $datas['keyword'], 'count' => $datas['count']];
         }
     }
 

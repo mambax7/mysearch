@@ -119,7 +119,7 @@ class MySearchUtility extends XoopsObject
             }
         }
 
-        if (!$success) {
+        if (false === $success) {
             $module->setErrors(sprintf(_AM_MYSEARCH_ERROR_BAD_XOOPS, $requiredVer, $currentVer));
         }
 

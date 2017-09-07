@@ -32,7 +32,7 @@ class mysearch_blacklist
      */
     public function getAllKeywords()
     {
-        $ret      = $tbl_black_list = array();
+        $ret      = $tbl_black_list = [];
         $myts     = MyTextSanitizer::getInstance();
         $filename = XOOPS_UPLOAD_PATH . '/mysearch_black_list.php';
         if (file_exists($filename)) {
@@ -94,7 +94,7 @@ class mysearch_blacklist
      */
     public function remove_blacklisted($keywords)
     {
-        $ret       = array();
+        $ret       = [];
         $tmp_array = array_values($this->keywords);
         foreach ($keywords as $onekeyword) {
             $add = true;

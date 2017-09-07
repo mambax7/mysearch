@@ -46,7 +46,7 @@ class Searches extends XoopsObject
     public function uname($uid = 0)
     {
         global $xoopsConfig;
-        static $tblusers = array();
+        static $tblusers = [];
         $option = -1;
         if (empty($uid)) {
             $uid = $this->getVar('uid');
@@ -211,7 +211,7 @@ class MysearchSearchesHandler extends XoopsObjectHandler
      */
     public function getCountPerDay($start, $limit)
     {
-        $ret    = array();
+        $ret    = [];
         $sql    = "SELECT count(date_format(datesearch,'%X-%m-%d')) AS cpt, date_format(datesearch,'%X-%m-%d') AS shdate FROM " . $this->db->prefix('mysearch_searches') . " GROUP BY date_format(datesearch,'%X-%m-%d') ORDER BY date_format(datesearch,'%X-%m-%d') DESC";
         $result = $this->db->query($sql, $limit, $start);
         while ($myrow = $this->db->fetchArray($result)) {
@@ -242,7 +242,7 @@ class MysearchSearchesHandler extends XoopsObjectHandler
      */
     public function getIPs($start, $limit, $id_as_key = false)
     {
-        $ret    = array();
+        $ret    = [];
         $sql    = 'SELECT Count(*) AS cpt, ip FROM ' . $this->db->prefix('mysearch_searches') . ' GROUP BY ip ORDER BY cpt DESC';
         $result = $this->db->query($sql, $limit, $start);
         while ($myrow = $this->db->fetchArray($result)) {
@@ -273,7 +273,7 @@ class MysearchSearchesHandler extends XoopsObjectHandler
      */
     public function getBiggestContributors($start, $limit, $id_as_key = false)
     {
-        $ret    = array();
+        $ret    = [];
         $sql    = 'SELECT Count(*) AS cpt, uid FROM ' . $this->db->prefix('mysearch_searches') . ' GROUP BY uid ORDER BY cpt DESC';
         $result = $this->db->query($sql, $limit, $start);
         while ($myrow = $this->db->fetchArray($result)) {
@@ -305,14 +305,14 @@ class MysearchSearchesHandler extends XoopsObjectHandler
     public function getMostSearched($start, $limit, $id_as_key = false)
     {
         $ts     = MyTextSanitizer::getInstance();
-        $ret    = array();
+        $ret    = [];
         $sql    = 'SELECT Count(keyword) AS cpt, keyword, mysearchid FROM ' . $this->db->prefix('mysearch_searches') . ' GROUP BY keyword ORDER BY cpt DESC';
         $result = $this->db->query($sql, $limit, $start);
         while ($myrow = $this->db->fetchArray($result)) {
-            $ret[$myrow['mysearchid']] = array(
+            $ret[$myrow['mysearchid']] = [
                 'keyword' => $ts->htmlSpecialChars($myrow['keyword']),
                 'count'   => $myrow['cpt']
-            );
+            ];
         }
 
         return $ret;
@@ -328,11 +328,11 @@ class MysearchSearchesHandler extends XoopsObjectHandler
     public function ajaxMostSearched($start, $limit, $searchword)
     {
         $ts     = MyTextSanitizer::getInstance();
-        $ret    = array();
+        $ret    = [];
         $sql    = 'SELECT Count(keyword) AS cpt, keyword FROM ' . $this->db->prefix('mysearch_searches') . ' WHERE keyword LIKE \'' . $searchword . '%\' GROUP BY keyword ORDER BY cpt DESC';
         $result = $this->db->query($sql, $limit, $start);
         while ($myrow = $this->db->fetchArray($result)) {
-            $ret[] = array('keyword' => $ts->htmlSpecialChars($myrow['keyword']), 'count' => $myrow['cpt']);
+            $ret[] = ['keyword' => $ts->htmlSpecialChars($myrow['keyword']), 'count' => $myrow['cpt']];
         }
 
         return $ret;
@@ -347,7 +347,7 @@ class MysearchSearchesHandler extends XoopsObjectHandler
 
     public function &getObjects($criteria = null, $id_as_key = false)
     {
-        $ret   = array();
+        $ret   = [];
         $limit = $start = 0;
         $sql   = 'SELECT * FROM ' . $this->db->prefix('mysearch_searches');
         if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {

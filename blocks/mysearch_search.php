@@ -19,7 +19,7 @@
 
 function b_mysearch_search_show()
 {
-    $block                   = array();
+    $block                   = [];
     $block['lang_search']    = _MB_SYSTEM_SEARCH;
     $block['lang_advsearch'] = _MB_SYSTEM_ADVS;
 

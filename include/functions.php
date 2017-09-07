@@ -23,7 +23,7 @@
 //  along with this program; if not, write to the Free Software              //
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
-// defined('XOOPS_ROOT_PATH') || exit('XOOPS root path not defined');
+// defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
 
 /**
  * Returns a module's option
@@ -34,7 +34,7 @@
 function mysearch_getmoduleoption($option, $repmodule = 'mysearch')
 {
     global $xoopsModuleConfig, $xoopsModule;
-    static $tbloptions = array();
+    static $tbloptions = [];
     if (is_array($tbloptions) && array_key_exists($option, $tbloptions)) {
         return $tbloptions[$option];
     }
@@ -115,7 +115,7 @@ function mysearch_search($queryarray, $andor, $limit, $offset, $userid)
     require_once XOOPS_ROOT_PATH . '/modules/mysearch/include/functions.php';
     require_once XOOPS_ROOT_PATH . '/modules/mysearch/class/blacklist.php';
     $mysearchHandler = xoops_getModuleHandler('searches', 'mysearch');
-    $banned          = array();
+    $banned          = [];
     $banned          = mysearch_getmoduleoption('bannedgroups');
     $uid             = 0;
     $datesearch      = date('Y-m-d H:i:s');
@@ -124,7 +124,7 @@ function mysearch_search($queryarray, $andor, $limit, $offset, $userid)
         $groups = $xoopsUser->getGroups();
         $uid    = $xoopsUser->getVar('uid');
     } else {
-        $groups = array(XOOPS_GROUP_ANONYMOUS);
+        $groups = [XOOPS_GROUP_ANONYMOUS];
     }
 
     $blacklist = new mysearch_blacklist();

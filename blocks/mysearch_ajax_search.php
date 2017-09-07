@@ -2,7 +2,7 @@
 //  Author: Trabis
 //  URL: http://www.xuups.com
 //  E-Mail: lusopoemas@gmail.com
-// defined('XOOPS_ROOT_PATH') || exit('XOOPS root path not defined');
+// defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
 
 function b_mysearch_ajaxsearch_show()
 {
@@ -27,7 +27,7 @@ function b_mysearch_ajaxsearch_show()
         }
     }
 
-    $block                   = array();
+    $block                   = [];
     $block['lang_search']    = _MB_MYSEARCH_SEARCH;
     $block['lang_advsearch'] = _MB_MYSEARCH_ADVS;
 

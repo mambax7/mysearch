@@ -17,7 +17,7 @@
  * @author        XOOPS Development Team
  */
 
-// defined('XOOPS_ROOT_PATH') || exit('XOOPS root path not defined');
+// defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
 require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 
 //load scripts
@@ -52,7 +52,7 @@ $search_form->addElement(new XoopsFormLabel(_MA_MYSEARCH_KEYWORDS, '
 new Ajax.Autocompleter("autocomplete_2", "autocomplete_choices_2", "' . XOOPS_URL . '/modules/mysearch/include/ajax_updater.php", {indicator: \'indicator2\',minChars: 2});
 </script>'));
 $type_select = new XoopsFormSelect(_MA_MYSEARCH_TYPE, 'andor', $andor);
-$type_select->addOptionArray(array('AND' => _MA_MYSEARCH_ALL, 'OR' => _MA_MYSEARCH_ANY, 'exact' => _MA_MYSEARCH_EXACT));
+$type_select->addOptionArray(['AND' => _MA_MYSEARCH_ALL, 'OR' => _MA_MYSEARCH_ANY, 'exact' => _MA_MYSEARCH_EXACT]);
 $search_form->addElement($type_select);
 if (!empty($mids)) {
     $mods_checkbox = new XoopsFormCheckBox(_MA_MYSEARCH_SEARCHIN, 'mids[]', $mids);
