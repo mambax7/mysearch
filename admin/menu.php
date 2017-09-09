@@ -40,26 +40,26 @@ $moduleHelper->loadLanguage('modinfo');
 $i = 0;
 
 // Index
-$adminmenu[$i]['title'] = _MI_MYSEARCH_ADMIN0;
-$adminmenu[$i]['link']  = 'admin/index.php';
-$adminmenu[$i]['icon']  = $pathIcon32 . '/home.png';
+'title' =>  _MI_MYSEARCH_ADMIN0,
+'link' =>  'admin/index.php',
+'icon' =>  $pathIcon32 . '/home.png',
 ++$i;
-$adminmenu[$i]['title'] = _MI_MYSEARCH_ADMMENU1;
-$adminmenu[$i]['link']  = 'admin/main.php?op=stats';
-$adminmenu[$i]['icon']  = $pathIcon32 . '/stats.png';
+'title' =>  _MI_MYSEARCH_ADMMENU1,
+'link' => stats',
+'icon' =>  $pathIcon32 . '/stats.png',
 ++$i;
-$adminmenu[$i]['title'] = _MI_MYSEARCH_ADMMENU2;
-$adminmenu[$i]['link']  = 'admin/main.php?op=purge';
-$adminmenu[$i]['icon']  = $pathIcon32 . '/prune.png';
+'title' =>  _MI_MYSEARCH_ADMMENU2,
+'link' => purge',
+'icon' =>  $pathIcon32 . '/prune.png',
 ++$i;
-$adminmenu[$i]['title'] = _MI_MYSEARCH_ADMMENU3;
-$adminmenu[$i]['link']  = 'admin/main.php?op=export';
-$adminmenu[$i]['icon']  = $pathIcon32 . '/export.png';
+'title' =>  _MI_MYSEARCH_ADMMENU3,
+'link' => export',
+'icon' =>  $pathIcon32 . '/export.png',
 ++$i;
-$adminmenu[$i]['title'] = _MI_MYSEARCH_ADMMENU4;
-$adminmenu[$i]['link']  = 'admin/main.php?op=blacklist';
-$adminmenu[$i]['icon']  = $pathIcon32 . '/manage.png';
+'title' =>  _MI_MYSEARCH_ADMMENU4,
+'link' => blacklist',
+'icon' =>  $pathIcon32 . '/manage.png',
 ++$i;
-$adminmenu[$i]['title'] = _MI_MYSEARCH_ADMMENU5;
-$adminmenu[$i]['link']  = 'admin/about.php';
-$adminmenu[$i]['icon']  = $pathIcon32 . '/about.png';
+'title' =>  _MI_MYSEARCH_ADMMENU5,
+'link' =>  'admin/about.php',
+'icon' =>  $pathIcon32 . '/about.png',
