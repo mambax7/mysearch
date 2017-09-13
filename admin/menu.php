@@ -31,35 +31,45 @@ if (false !== ($moduleHelper = Xmf\Module\Helper::getHelper($moduleDirName))) {
     $moduleHelper = Xmf\Module\Helper::getHelper('system');
 }
 
-
 $pathIcon32 = \Xmf\Module\Admin::menuIconPath('');
 //$pathModIcon32 = $moduleHelper->getModule()->getInfo('modicons32');
 
 $moduleHelper->loadLanguage('modinfo');
 
-$i = 0;
-
 // Index
-'title' =>  _MI_MYSEARCH_ADMIN0,
-'link' =>  'admin/index.php',
-'icon' =>  $pathIcon32 . '/home.png',
-++$i;
-'title' =>  _MI_MYSEARCH_ADMMENU1,
-'link' => stats',
-'icon' =>  $pathIcon32 . '/stats.png',
-++$i;
-'title' =>  _MI_MYSEARCH_ADMMENU2,
-'link' => purge',
-'icon' =>  $pathIcon32 . '/prune.png',
-++$i;
-'title' =>  _MI_MYSEARCH_ADMMENU3,
-'link' => export',
-'icon' =>  $pathIcon32 . '/export.png',
-++$i;
-'title' =>  _MI_MYSEARCH_ADMMENU4,
-'link' => blacklist',
-'icon' =>  $pathIcon32 . '/manage.png',
-++$i;
-'title' =>  _MI_MYSEARCH_ADMMENU5,
-'link' =>  'admin/about.php',
-'icon' =>  $pathIcon32 . '/about.png',
+$adminmenu[] = [
+    'title' => _MI_MYSEARCH_ADMIN0,
+    'link'  => 'admin/index.php',
+    'icon'  => $pathIcon32 . '/home.png',
+];
+
+$adminmenu[] = [
+    'title' => _MI_MYSEARCH_ADMMENU1,
+    'link'  => 'admin/main.php?op=stats',
+    'icon'  => $pathIcon32 . '/stats.png',
+];
+
+$adminmenu[] = [
+    'title' => _MI_MYSEARCH_ADMMENU2,
+    'link'  => 'admin/main.php?op=purge',
+    'icon'  => $pathIcon32 . '/prune.png',
+];
+
+$adminmenu[] = [
+    'title' => _MI_MYSEARCH_ADMMENU3,
+    'link'  => 'admin/main.php?op=export',
+    'icon'  => $pathIcon32 . '/export.png',
+];
+
+$adminmenu[] = [
+    'title' => _MI_MYSEARCH_ADMMENU4,
+    'link'  => 'admin/main.php?op=blacklist',
+    'icon'  => $pathIcon32 . '/manage.png',
+];
+
+$adminmenu[] = [
+    'title' => _MI_MYSEARCH_ADMMENU5,
+    'link'  => 'admin/about.php',
+    'icon'  => $pathIcon32 . '/about.png',
+];
+
