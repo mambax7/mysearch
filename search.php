@@ -37,7 +37,7 @@ if (file_exists(XOOPS_ROOT_PATH . '/modules/mysearch/language/' . $xoopsConfig['
  exit();
  }
  */
-if ($xoopsModuleConfig['enable_deep_search'] == 1) {
+if (1 == $xoopsModuleConfig['enable_deep_search']) {
     $GLOBALS['xoopsOption']['template_main'] = 'mysearch_search_deep.tpl';
     $search_limiter                          = 0;    // Do not limit search results.
 } else {
@@ -86,15 +86,15 @@ $xoopsTpl->assign('start', $start + 1);
 
 $queries = [];
 
-if ($action == 'recoosults') {
-    if ($query == '') {
+if ('recoosults' == $action) {
+    if ('' == $query) {
         redirect_header('search.php', 1, _MA_MYSEARCH_PLZENTER);
     }
-} elseif ($action == 'showall') {
-    if ($query == '' || empty($mid)) {
+} elseif ('showall' == $action) {
+    if ('' == $query || empty($mid)) {
         redirect_header('search.php', 1, _MA_MYSEARCH_PLZENTER);
     }
-} elseif ($action == 'showallbyuser') {
+} elseif ('showallbyuser' == $action) {
     if (empty($mid) || empty($uid)) {
         redirect_header('search.php', 1, _MA_MYSEARCH_PLZENTER);
     }
@@ -105,7 +105,7 @@ $gpermHandler      = xoops_getHandler('groupperm');
 $available_modules = $gpermHandler->getItemIds('module_read', $groups);
 
 $xoopsTpl->assign('basic_search', false);
-if ($action == 'search') {
+if ('search' == $action) {
     // This area seems to handle the 'just display the advanced search page' part.
     $search_form = include __DIR__ . '/include/searchform.php';
     $xoopsTpl->assign('search_form', $search_form);
@@ -114,15 +114,15 @@ if ($action == 'search') {
     exit();
 }
 
-if ($andor != 'OR' && $andor != 'exact' && $andor != 'AND') {
+if ('OR' != $andor && 'exact' != $andor && 'AND' != $andor) {
     $andor = 'AND';
 }
 $xoopsTpl->assign('search_type', $andor);
 
 $myts = MyTextSanitizer::getInstance();
 
-if ($action != 'showallbyuser') {
-    if ($andor != 'exact') {
+if ('showallbyuser' != $action) {
+    if ('exact' != $andor) {
         $ignored_queries = []; // holds kewords that are shorter than allowed minmum length
         $temp_queries    = preg_split('/[\s,]+/', $query);
         foreach ($temp_queries as $q) {
@@ -133,7 +133,7 @@ if ($action != 'showallbyuser') {
                 $ignored_queries[] = $myts->addSlashes($q);
             }
         }
-        if (count($queries) == 0) {
+        if (0 == count($queries)) {
             redirect_header('search.php', 2, sprintf(_MA_MYSEARCH_KEYTOOSHORT, $xoopsModuleConfig['keyword_min']));
         }
     } else {
@@ -190,13 +190,13 @@ switch ($action) {
                 $count                                       = count($results);
                 $all_results_counts[$module->getVar('name')] = $count;
 
-                if (!is_array($results) || $count == 0) {
+                if (!is_array($results) || 0 == $count) {
                     $all_results[$module->getVar('name')] = [];
                 } else {
                     $num_show_this_page = (($count - $start) > $max_results_per_page) ? $max_results_per_page : $count - $start;
                     for ($i = 0; $i < $num_show_this_page; ++$i) {
                         $results[$i]['processed_image_alt_text'] = $module->getVar('name') . ': ';
-                        if (isset($results[$i]['image']) && $results[$i]['image'] != '') {
+                        if (isset($results[$i]['image']) && '' != $results[$i]['image']) {
                             $results[$i]['processed_image_url'] = XOOPS_URL . '/modules/' . $module->getVar('dirname') . '/' . $results[$i]['image'];
                         } else {
                             $results[$i]['processed_image_url'] = XOOPS_URL . '/images/icons/posticon2.gif';
@@ -214,7 +214,7 @@ switch ($action) {
                         $results[$i]['processed_time'] = !empty($results[$i]['time']) ? ' (' . formatTimestamp((int)$results[$i]['time']) . ')' : '';
                     }
 
-                    if ($xoopsModuleConfig['enable_deep_search'] == 1) {
+                    if (1 == $xoopsModuleConfig['enable_deep_search']) {
                         if ($count > $max_results_per_page) {
                             $search_url = XOOPS_URL . '/modules/mysearch/search.php?query=' . urlencode(stripslashes(implode(' ', $queries)));
                             $search_url .= "&mid=$mid&action=showall&andor=$andor";
@@ -258,7 +258,7 @@ switch ($action) {
             $num_show_this_page = (($count - $start) > $max_results_per_page) ? $max_results_per_page : $count - $start;
             for ($i = 0; $i < $num_show_this_page; ++$i) {
                 $results[$i]['processed_image_alt_text'] = $module->getVar('name') . ': ';
-                if (isset($results[$i]['image']) && $results[$i]['image'] != '') {
+                if (isset($results[$i]['image']) && '' != $results[$i]['image']) {
                     $results[$i]['processed_image_url'] = XOOPS_URL . '/modules/' . $module->getVar('dirname') . '/' . $results[$i]['image'];
                 } else {
                     $results[$i]['processed_image_url'] = XOOPS_URL . '/images/icons/posticon2.gif';
@@ -281,7 +281,7 @@ switch ($action) {
             $search_url_base       = XOOPS_URL . '/modules/mysearch/search.php?';
             $search_url_get_params = 'query=' . urlencode(stripslashes(implode(' ', $queries)));
             $search_url_get_params .= "&mid=$mid&action=$action&andor=$andor";
-            if ($action == 'showallbyuser') {
+            if ('showallbyuser' == $action) {
                 $search_url_get_params .= "&uid=$uid";
             }
             $search_url = $search_url_base . $search_url_get_params;

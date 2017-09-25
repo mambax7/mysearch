@@ -38,7 +38,7 @@ class mysearch_blacklist
         if (file_exists($filename)) {
             require_once $filename;
             foreach ($tbl_black_list as $onekeyword) {
-                if (xoops_trim($onekeyword) != '') {
+                if ('' != xoops_trim($onekeyword)) {
                     $onekeyword       = $myts->htmlSpecialChars($onekeyword);
                     $ret[$onekeyword] = $onekeyword;
                 }

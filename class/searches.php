@@ -83,7 +83,7 @@ class MysearchSearchesHandler extends XoopsObjectHandler
             return false;
         }
         $numrows = $this->db->getRowsNum($result);
-        if ($numrows == 1) {
+        if (1 == $numrows) {
             $searches = new searches();
             $searches->assignVars($this->db->fetchArray($result));
 
@@ -95,7 +95,7 @@ class MysearchSearchesHandler extends XoopsObjectHandler
 
     public function insert(XoopsObject $searches, $force = false)
     {
-        if (get_class($searches) != 'searches') {
+        if ('searches' != get_class($searches)) {
             return false;
         }
         if (!$searches->isDirty()) {
@@ -162,7 +162,7 @@ class MysearchSearchesHandler extends XoopsObjectHandler
 
     public function delete(XoopsObject $searches, $force = false)
     {
-        if (get_class($searches) != 'searches') {
+        if ('searches' != get_class($searches)) {
             return false;
         }
         $sql = sprintf('DELETE FROM %s WHERE mysearchid = %u', $this->db->prefix('mysearch_searches'), $searches->getVar('mysearchid'));
@@ -352,7 +352,7 @@ class MysearchSearchesHandler extends XoopsObjectHandler
         $sql   = 'SELECT * FROM ' . $this->db->prefix('mysearch_searches');
         if (isset($criteria) && is_subclass_of($criteria, 'criteriaelement')) {
             $sql .= ' ' . $criteria->renderWhere();
-            if ($criteria->getSort() != '') {
+            if ('' != $criteria->getSort()) {
                 $sql .= ' ORDER BY ' . $criteria->getSort() . ' ' . $criteria->getOrder();
             }
             $limit = $criteria->getLimit();

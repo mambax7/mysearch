@@ -131,8 +131,8 @@ function mysearch_search($queryarray, $andor, $limit, $offset, $userid)
     $blacklist->getAllKeywords();    // Load keywords from blacklist
     $queryarray = $blacklist->remove_blacklisted($queryarray);
     $count      = count($queryarray);
-    if (count(array_intersect($groups, $banned)) == 0
-        && $userid == 0) {    // If it's not a banned user and if we are not viewing someone's profile
+    if (0 == count(array_intersect($groups, $banned))
+        && 0 == $userid) {    // If it's not a banned user and if we are not viewing someone's profile
         if (is_array($queryarray) && $count > 0) {
             for ($i = 0; $i < $count; ++$i) {
                 $mysearch = $mysearchHandler->create(true);
